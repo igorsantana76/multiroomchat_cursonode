@@ -24,18 +24,35 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form accept-charset="UTF-8" role="form" class="form-signin">
+                            <form accept-charset="UTF-8" role="form" class="form-signin" action="/chat" method="post">
                                 <fieldset>
                                     <label class="panel-login">
                                         <div class="login_result"></div>
                                     </label>
-                                    <input class="form-control" placeholder="Nome ou apelido" id="apelido" type="text">
+                                    <input class="form-control" placeholder="Nome ou apelido" name="name" id="apelido" type="text">
                                     <br></br>
                                     <input class="btn btn-lg btn-success btn-block" type="submit" id="entrar" value="Entrar »">
                                 </fieldset>
                             </form>
                         </div>
                     </div>
+
+                    <div>
+                        <% if(!!validacao.length){ %>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <strong>Atenção<strong>
+                                    <ul>
+                                        <% validacao.forEach(function(error){ %>
+                                            <%= error.msg %>
+                                            </br>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+
                 </div>
             </div>
         </div>
