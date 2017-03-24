@@ -12,5 +12,7 @@ module.exports.initChat = function(application, req, res){
         return;
     }
 
-    res.render('chat');
+    application.get('io').emit('msgParaCliente', {"userName" : req.body.name, "message":" acabou de entrar no chat."});
+
+    res.render('chat', { userName: req.body.name });
 }
